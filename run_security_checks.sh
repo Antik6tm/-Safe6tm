@@ -5,6 +5,9 @@ mkdir -p "$LOG_DIR"
 
 echo "$(date '+%Y-%m-%d %H:%M:%S') - Début du scan de sécurité." >> "$LOG_DIR/monitoring.log"
 
+
+sudo sed -i 's/WEB_CMD="\/bin\/false"/WEB_CMD="\/bin\/wget"/g' /etc/rkhunter.conf
+
 # Vérification des rootkits
 chkrootkit > "$LOG_DIR/chkrootkit.log"
 
