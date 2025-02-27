@@ -82,7 +82,7 @@ table inet firewall {
         udp dport != 53 drop
 
         # Bloquer tout trafic TCP sortant sauf vers HTTPS, HTTP et OpenVPN
-        tcp dport != { 80, 443, 1194 } drop
+tcp dport != { 80, 443, 1194, 8443, 7770 } drop
 
         # Bloquer les requêtes ICMP sortantes (pour éviter fingerprinting)
         ip protocol icmp drop
